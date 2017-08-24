@@ -23,16 +23,54 @@
 
 var extend = require('extend');
 var gapic = {
-  v1beta1: require('./v1beta1')
+  v1beta1: require('./v1beta1'),
+  v1beta2: require('./v1beta2'),
 };
 var gaxGrpc = require('google-gax').grpc();
 
 const VERSION = require('../package.json').version;
 
+// ---------------
+// v1beta2
+// ---------------
+
 /**
- * Create a videoIntelligenceServiceClient with additional helpers for common
- * tasks.
+ * Create a videoIntelligenceServiceClient.
+ * Use this service to interact with the Google Cloud Video Intelligence API.
  *
+ * @param {object=} options - [Configuration object](#/docs).
+ * @param {number=} options.port - The port on which to connect to
+ *     the remote host.
+ * @param {string=} options.servicePath - The domain name of the
+ *     API remote host.
+ * @resource [Cloud Video Intelligence](https://cloud.google.com/video-intelligence)
+ */
+function videoIntelligenceV1beta2(options) {
+  // Define the header options.
+  options = extend({}, options, {
+    libName: 'gccl',
+    libVersion: VERSION
+  });
+
+  // Create the client with the provided options.
+  var client = gapic.v1beta2(options).videoIntelligenceServiceClient(options);
+  return client;
+}
+
+var v1beta2Protos = {};
+
+extend(v1beta2Protos, gaxGrpc.load([{
+  root: require('google-proto-files')('..'),
+  file: 'google/cloud/videointelligence/v1beta2/video_intelligence.proto'
+}]).google.cloud.videointelligence.v1beta2);
+
+
+// ---------------
+// v1beta1
+// ---------------
+
+/**
+ * Create a videoIntelligenceServiceClient.
  * Use this service to interact with the Google Cloud Video Intelligence API.
  *
  * @param {object=} options - [Configuration object](#/docs).
@@ -61,7 +99,14 @@ extend(v1beta1Protos, gaxGrpc.load([{
   file: 'google/cloud/videointelligence/v1beta1/video_intelligence.proto'
 }]).google.cloud.videointelligence.v1beta1);
 
-module.exports = videoIntelligenceV1beta1;
-module.exports.types = v1beta1Protos;
+
+// ---------------
+// exports
+// ---------------
+
+module.exports = videoIntelligenceV1beta2;
+module.exports.types = v1beta2Protos;
 module.exports.v1beta1 = videoIntelligenceV1beta1;
 module.exports.v1beta1.types = v1beta1Protos;
+module.exports.v1beta2 = videoIntelligenceV1beta2;
+module.exports.v1beta2.types = v1beta2Protos;
