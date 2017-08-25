@@ -1313,6 +1313,23 @@ var TextSpan = {
 };
 
 /**
+ * Represents a category returned from the text classifier.
+ *
+ * @property {string} name
+ *   The name of the category representing the document.
+ *
+ * @property {number} confidence
+ *   The classifier's confidence of the category. Number represents how certain
+ *   the classifier is that this category represents the given text.
+ *
+ * @class
+ * @see [google.cloud.language.v1beta2.ClassificationCategory definition in proto format]{@link https://github.com/googleapis/googleapis/blob/master/google/cloud/language/v1beta2/language_service.proto}
+ */
+var ClassificationCategory = {
+  // This is for documentation. Actual contents will be loaded by gRPC.
+};
+
+/**
  * The sentiment analysis request message.
  *
  * @property {Object} document
@@ -1484,6 +1501,36 @@ var AnalyzeSyntaxResponse = {
 };
 
 /**
+ * The document classification request message.
+ *
+ * @property {Object} document
+ *   Input document.
+ *
+ *   This object should have the same structure as [Document]{@link Document}
+ *
+ * @class
+ * @see [google.cloud.language.v1beta2.ClassifyTextRequest definition in proto format]{@link https://github.com/googleapis/googleapis/blob/master/google/cloud/language/v1beta2/language_service.proto}
+ */
+var ClassifyTextRequest = {
+  // This is for documentation. Actual contents will be loaded by gRPC.
+};
+
+/**
+ * The document classification response message.
+ *
+ * @property {Object[]} categories
+ *   Categories representing the input document.
+ *
+ *   This object should have the same structure as [ClassificationCategory]{@link ClassificationCategory}
+ *
+ * @class
+ * @see [google.cloud.language.v1beta2.ClassifyTextResponse definition in proto format]{@link https://github.com/googleapis/googleapis/blob/master/google/cloud/language/v1beta2/language_service.proto}
+ */
+var ClassifyTextResponse = {
+  // This is for documentation. Actual contents will be loaded by gRPC.
+};
+
+/**
  * The request message for the text annotation API, which can perform multiple
  * analysis types (sentiment, entities, and syntax) in one call.
  *
@@ -1523,6 +1570,9 @@ var AnnotateTextRequest = {
    *
    * @property {boolean} extractEntitySentiment
    *   Extract entities and their associated sentiment.
+   *
+   * @property {boolean} classifyText
+   *   Classify the full document into categories.
    *
    * @class
    * @see [google.cloud.language.v1beta2.AnnotateTextRequest.Features definition in proto format]{@link https://github.com/googleapis/googleapis/blob/master/google/cloud/language/v1beta2/language_service.proto}
@@ -1565,6 +1615,11 @@ var AnnotateTextRequest = {
  *   The language of the text, which will be the same as the language specified
  *   in the request or, if not specified, the automatically-detected language.
  *   See {@link Document.language} field for more details.
+ *
+ * @property {Object[]} categories
+ *   Categories identified in the input document.
+ *
+ *   This object should have the same structure as [ClassificationCategory]{@link ClassificationCategory}
  *
  * @class
  * @see [google.cloud.language.v1beta2.AnnotateTextResponse definition in proto format]{@link https://github.com/googleapis/googleapis/blob/master/google/cloud/language/v1beta2/language_service.proto}
