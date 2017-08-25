@@ -50,7 +50,7 @@
     "Google Cloud Natural Language API"
   ],
   "dependencies": {
-    "google-proto-files": "^0.12.0",
+    "google-proto-files": "^0.13.0",
     "google-gax": "^0.13.2",
     "extend": "^3.0.0"
   },
