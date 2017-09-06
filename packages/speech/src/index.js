@@ -23,7 +23,8 @@
 
 var extend = require('extend');
 var gapic = {
-  v1: require('./v1')
+  v1: require('./v1'),
+  v1_1beta1: require('./v1_1beta1'),
 };
 var gaxGrpc = require('google-gax').grpc();
 var helpers = require('./helpers');
@@ -66,7 +67,46 @@ extend(v1Protos, gaxGrpc.load([{
   file: 'google/cloud/speech/v1/cloud_speech.proto'
 }]).google.cloud.speech.v1);
 
+
+/**
+ * Create an speechClient with additional helpers for common
+ * tasks.
+ *
+ * Service that implements Google Cloud Speech API.
+ *
+ * @constructor
+ * @alias module:speech
+ * @mixes module:speech/helpers
+ *
+ * @param {object=} options - [Configuration object](#/docs).
+ * @param {number=} options.port - The port on which to connect to
+ *     the remote host.
+ * @param {string=} options.servicePath - The domain name of the
+ *     API remote host.
+ */
+function speechV1_1beta1(options) {
+  // Define the header options.
+  options = extend({}, options, {
+    libName: 'gccl',
+    libVersion: VERSION
+  });
+
+  // Create the speech client with the provided options.
+  var client = gapic.v1_1beta1(options).speechClient(options);
+  Object.assign(client.constructor.prototype, helpers());
+  return client;
+}
+
+var v1_1beta1Protos = {};
+
+extend(v1_1beta1Protos, gaxGrpc.load([{
+  root: require('google-proto-files')('..'),
+  file: 'google/cloud/speech/v1_1beta1/cloud_speech.proto'
+}]).google.cloud.speech.v1p1beta1);
+
 module.exports = speechV1;
 module.exports.types = v1Protos;
 module.exports.v1 = speechV1;
 module.exports.v1.types = v1Protos;
+module.exports.v1_1beta1 = speechV1_1beta1;
+module.exports.v1_1beta1.types = v1_1beta1Protos;
