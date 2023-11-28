@@ -28,8 +28,8 @@
     "winston"
   ],
   "dependencies": {
-    "@google-cloud/common": "^0.13.0",
-    "@google-cloud/logging": "^1.0.0",
+    "@google-cloud/common": "^0.23.0",
+    "@google-cloud/logging": "^5.0.0",
     "extend": "^3.0.0",
     "is": "^3.2.0",
     "lodash.mapvalues": "^4.6.0"
