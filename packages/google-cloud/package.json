@@ -124,7 +124,7 @@
     "@google-cloud/resource": "^0.7.0",
     "@google-cloud/spanner": "^0.7.1",
     "@google-cloud/speech": "^0.10.3",
-    "@google-cloud/storage": "^1.0.0",
+    "@google-cloud/storage": "^5.17.0",
     "@google-cloud/translate": "^1.0.0",
     "@google-cloud/video-intelligence": "^0.3.2",
     "@google-cloud/vision": "^0.12.0",
