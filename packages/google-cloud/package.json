@@ -115,7 +115,7 @@
     "@google-cloud/datastore": "^1.0.0",
     "@google-cloud/dlp": "^0.1.0",
     "@google-cloud/dns": "^0.6.0",
-    "@google-cloud/firestore": "^0.8.0",
+    "@google-cloud/firestore": "^3.3.0",
     "@google-cloud/language": "^0.12.1",
     "@google-cloud/logging": "^1.0.0",
     "@google-cloud/monitoring": "^0.3.0",
